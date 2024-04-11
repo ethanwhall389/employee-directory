@@ -1,7 +1,10 @@
+import Home from "./pages/Home"
 
 function App() {
 
-  return <p className="text-3xl">Hello, world!</p>
+  return (
+    <Home />
+  )
 
 }
 

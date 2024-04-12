@@ -11,19 +11,12 @@ export default function Home() {
     const [filterQuery, setFilterQuery] = useState('');
     
     const filteredUsers = users.filter(user => {        
-        if (
-            user.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            user.lastName.toLowerCase().includes(searchQuery.toLocaleLowerCase())
-            &&
-            user.company.department.includes(filterQuery)
-        ) {
-            return true;
-        } else {
-            return false;
-        }
-        // return user.firstName.toLowerCase().includes(searchQuery.toLowerCase()) || user.lastName.toLowerCase().includes(searchQuery.toLocaleLowerCase()) &&
-        // user.company.department.includes(filterQuery) ?
-        // true : false;   
+
+        const fullName = `${user.firstName} ${user.lastName}`;
+
+        return fullName.toLowerCase().includes(searchQuery.toLowerCase())
+        && user.company.department.includes(filterQuery)
+        ? true : false;
 
     })
 
@@ -35,13 +28,15 @@ export default function Home() {
 
     return (
         <>
+        <div className="max-w-screen-xl mx-auto">
+        <h1 className="text-3xl text-center my-3 mb-5">Employee Directory</h1>
         <SearchBar setSearchQuery={setSearchQuery}/>
-        <h1>Employee Directory</h1>
         <Sort userData={users} setFilterQuery={setFilterQuery} filterQuery={filterQuery}/>
-        <div className="py-5 mx-auto max-w-screen-xl grid grid-cols-responsive gap-3 place-items-center">
+        <div className="py-5 mx-auto w-full grid grid-cols-responsive gap-3 place-items-center">
             {filteredUsers.map((user) => (
                 <EmployeeCard key={user.id} userData={user}/>
             ))}
+        </div>
         </div>
         </>
     )

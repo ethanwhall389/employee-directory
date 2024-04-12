@@ -23,16 +23,13 @@ export default function Sort({userData, setFilterQuery, filterQuery}) {
     }
     
     return (
-        <div className="flex justify-end">
-            <div className="flex flex-col gap-2 w-62 items-center">
-            <span>Sort by department</span>
-            <select className="p-2 w-full" name="sort-by-department" id="sort" onChange={handleChange}>
-                <option value={'All'}>All</option>
+        <div className="flex justify-center mt-2">
+            <select className="p-3 max-w-screen-md w-full rounded-full" name="sort-by-department" id="sort" onChange={handleChange}>
+                <option value={'All'}>All Departments</option>
                 {departments.map((dept, index) => (
                     <option key={index} value={dept}>{dept}</option>
                 ))}
             </select>
-            </div>
         </div>
     )
 }

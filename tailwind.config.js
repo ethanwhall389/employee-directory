@@ -7,6 +7,9 @@ export default {
         responsive: "repeat(auto-fill, minmax(325px, 1fr))",
       },
     },
+    fontFamily: {
+      oswald: ["Oswald", "sans-serif"],
+    },
   },
   plugins: [],
 };

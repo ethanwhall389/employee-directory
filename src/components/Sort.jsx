@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
-export default function Sort({userData}) {
-    
+export default function Sort({userData, setFilterQuery, filterQuery}) {
+
     const [departments, setDepartments] = useState([]);
 
     useEffect(() => {
@@ -12,12 +12,21 @@ export default function Sort({userData}) {
             }
         })
         setDepartments(tempDepartments);
-    }, [userData])    
+    }, [userData])  
+    
+    function handleChange(e) {
+        if (e.target.value === 'All') {
+            setFilterQuery('');
+        } else {
+            setFilterQuery(e.target.value);
+        }
+    }
     
     return (
-        <select name="sort-by-department" id="sort">
+        <select name="sort-by-department" id="sort" onChange={handleChange}>
+            <option value={'All'}>All</option>
             {departments.map((dept, index) => (
-                <option key={index} value={dept.toLowerCase()}>{dept}</option>
+                <option key={index} value={dept}>{dept}</option>
             ))}
         </select>
     )

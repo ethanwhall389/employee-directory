@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import fetchData from "../utils/fetchData";
 import { dummyData } from "../utils/fetchData";
 import EmployeeCard from "../components/EmployeeCard";
+import Sort from "../components/Sort";
 
 export default function Home() {
     const [users, setUsers] = useState([]);
@@ -15,7 +16,7 @@ export default function Home() {
     return (
         <>
         <h1>Employee Directory</h1>
-        {/* <div className="grid grid-cols-1 grid-flow-dense gap-3 md:grid-cols-2 lg:grid-cols-3 place-items-center"> */}
+        <Sort userData={users}/>
         <div className="mx-auto max-w-screen-xl grid grid-cols-responsive gap-3 place-items-center">
             {users.map((user) => (
                 <EmployeeCard key={user.id} userData={user}/>

@@ -114,7 +114,7 @@ export const dummyData = [
         postalCode: "37076",
         state: "TN",
       },
-      department: "Marketing",
+      department: "Sales",
       name: "Blanda-O'Keefe",
       title: "Help Desk Operator",
     },

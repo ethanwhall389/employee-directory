@@ -7,15 +7,16 @@ export default function Home() {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        fetchData('https://dummyjson.com/users', setUsers)
-        // setUsers(dummyData);
+        // fetchData('https://dummyjson.com/users', setUsers)
+        setUsers(dummyData);
     }, [])
 
 
     return (
         <>
         <h1>Employee Directory</h1>
-        <div className="grid grid-cols-1 grid-flow-dense gap-3 md:grid-cols-2 lg:grid-cols-3 place-items-center">
+        {/* <div className="grid grid-cols-1 grid-flow-dense gap-3 md:grid-cols-2 lg:grid-cols-3 place-items-center"> */}
+        <div className="mx-auto max-w-screen-xl grid grid-cols-responsive gap-3 place-items-center">
             {users.map((user) => (
                 <EmployeeCard key={user.id} userData={user}/>
             ))}

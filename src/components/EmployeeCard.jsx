@@ -5,7 +5,7 @@ export default function EmployeeCard({userData}) {
             <div className="">
                 <p className="text-lg font-bold">{userData.firstName} {userData.lastName}</p>
                 <p>{userData.company.title} | {userData.company.department}</p>
-                <p>{userData.email}</p>
+                <a href={`mailto:${userData.email}`}><p>{userData.email}</p></a>
                 <p>{userData.phone}</p>
             </div>
     </div>

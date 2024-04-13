@@ -1,5 +1,9 @@
-export default async function fetchData(url, setUsers) {
+export default async function fetchData(url, setUsers, setIsLoading) {
   try {
+    setTimeout(() => {
+      setIsLoading(true);
+    }, 200);
+
     const res = await fetch(url, {
       mode: "cors",
     });
@@ -8,7 +12,11 @@ export default async function fetchData(url, setUsers) {
 
     console.log(JSON.stringify(data.users));
     setUsers(data.users);
-  } catch {}
+  } catch (err) {
+    console.error(err);
+  } finally {
+    setIsLoading(false);
+  }
 }
 
 export const dummyData = [

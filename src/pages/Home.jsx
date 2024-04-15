@@ -22,8 +22,8 @@ export default function Home() {
   });
 
   useEffect(() => {
-    fetchData("https://dummyjson.com/users", setUsers, setIsLoading);
-    // setUsers(dummyData);
+    // fetchData("https://dummyjson.com/users", setUsers, setIsLoading);
+    setUsers(dummyData);
   }, []);
 
   return (

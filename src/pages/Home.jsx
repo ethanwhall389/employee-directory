@@ -22,8 +22,12 @@ export default function Home() {
   });
 
   useEffect(() => {
-    // fetchData("https://dummyjson.com/users", setUsers, setIsLoading);
-    setUsers(dummyData);
+    async function getData() {
+      const data = await fetchData("https://dummyjson.com/users", setIsLoading);
+      setUsers(data.users);
+      // setUsers(dummyData);
+    }
+    getData();
   }, []);
 
   return (

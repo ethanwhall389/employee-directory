@@ -32,7 +32,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="max-w-screen-xl mx-auto">
+      <div className="w-full max-w-screen-xl mx-auto">
         <h1 className="text-3xl text-center my-3 mb-5">Employee Directory</h1>
         <SearchBar setSearchQuery={setSearchQuery} />
         <Sort

@@ -5,6 +5,8 @@ import EmployeeCard from "../components/EmployeeCard";
 import Sort from "../components/Sort";
 import SearchBar from "../components/SearchBar";
 import CircularProgress from "@mui/material/CircularProgress";
+import GroupIcon from "../components/GroupIcon";
+
 
 export default function Home() {
   const [users, setUsers] = useState([]);
@@ -24,8 +26,8 @@ export default function Home() {
   useEffect(() => {
     async function getData() {
       const data = await fetchData("https://dummyjson.com/users", setIsLoading);
-      setUsers(data.users);
-      // setUsers(dummyData);
+      // setUsers(data.users);
+      setUsers(dummyData);
     }
     getData();
   }, []);
@@ -34,12 +36,19 @@ export default function Home() {
     <>
       <div className="w-full max-w-screen-xl mx-auto">
         <h1 className="text-3xl text-center my-3 mb-5">Employee Directory</h1>
+        
         <SearchBar setSearchQuery={setSearchQuery} />
+        
         <Sort
           userData={users}
           setFilterQuery={setFilterQuery}
           filterQuery={filterQuery}
         />
+
+        <div className="flex justify-end">
+          <GroupIcon/>
+        </div>
+
         {isLoading && (
           <div className="flex justify-center my-6">
             <CircularProgress />

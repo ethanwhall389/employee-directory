@@ -54,7 +54,7 @@ export default function Home() {
             <CircularProgress />
           </div>
         )}
-        <div className="py-5 mx-auto w-full grid grid-cols-responsive gap-3 place-items-center">
+        <div className="py-5 mx-auto w-full grid grid-cols-responsiveMd gap-3 place-items-center">
           {filteredUsers.map((user) => (
             <EmployeeCard key={user.id} userData={user} />
           ))}

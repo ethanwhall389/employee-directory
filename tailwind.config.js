@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       gridTemplateColumns: {
-        responsive: "repeat(auto-fill, minmax(325px, 1fr))",
+        responsiveMd: "repeat(auto-fill, minmax(325px, 1fr))",
+        responsiveLg: "repeat(auto-fill, minmax(450px, 1fr))",
       },
     },
     fontFamily: {

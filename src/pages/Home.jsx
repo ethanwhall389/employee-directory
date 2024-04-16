@@ -8,14 +8,17 @@ import CircularProgress from "@mui/material/CircularProgress";
 import GroupIcon from "../components/GroupIcon";
 
 
+
 export default function Home() {
   const [users, setUsers] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [filterQuery, setFilterQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  
 
   const filteredUsers = users.filter((user) => {
     const fullName = `${user.firstName} ${user.lastName}`;
+
 
     return fullName.toLowerCase().includes(searchQuery.toLowerCase()) &&
       user.company.department.includes(filterQuery)

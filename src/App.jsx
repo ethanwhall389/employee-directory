@@ -7,14 +7,14 @@ function App() {
 
   const [groups, setGroups] = useState([
     {
-      groupID: 0,
+      groupId: 0,
       groupName: 'April 1st sales team',
       groupUserIds: [
         0, 4, 5, 10, 20
       ]
     },
     {
-      groupID: 1,
+      groupId: 1,
       groupName: 'Party Planning Committee',
       groupUserIds: [
         3, 4, 15, 18, 21

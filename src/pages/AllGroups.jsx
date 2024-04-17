@@ -2,7 +2,7 @@ import { GroupContext } from "../App"
 import { useContext } from "react"
 import GroupCard from "../components/GroupCard";
 
-export default function Groups() {
+export default function AllGroups() {
     const {groups} = useContext(GroupContext);
     
     return (

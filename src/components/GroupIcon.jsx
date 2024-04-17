@@ -13,7 +13,7 @@ export default function GroupIcon() {
     }
 
     return (
-      <div className="relative w-fit m-4 hover:cursor-pointer" onClick={handleClick}>
+      <div className="relative w-fit m-4 hover:cursor-pointer" title="Groups" onClick={handleClick}>
         <div className="z-10 relative">
           <GroupsIcon fontSize="large"/>
         </div>

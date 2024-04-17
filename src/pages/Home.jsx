@@ -1,19 +1,17 @@
-import { useState, useEffect } from "react";
-import fetchData from "../utils/fetchData";
-import { dummyData } from "../utils/fetchData";
+import { useState, useEffect, createContext, useContext } from "react";
 import EmployeeCard from "../components/EmployeeCard";
 import Sort from "../components/Sort";
 import SearchBar from "../components/SearchBar";
 import CircularProgress from "@mui/material/CircularProgress";
 import GroupIcon from "../components/GroupIcon";
-
+import { UserContext } from "../App";
 
 
 export default function Home() {
-  const [users, setUsers] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [filterQuery, setFilterQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const {users} = useContext(UserContext);
   
 
   const filteredUsers = users.filter((user) => {
@@ -26,14 +24,6 @@ export default function Home() {
       : false;
   });
 
-  useEffect(() => {
-    async function getData() {
-      const data = await fetchData("https://dummyjson.com/users", setIsLoading);
-      // setUsers(data.users);
-      setUsers(dummyData);
-    }
-    getData();
-  }, []);
 
   return (
     <>

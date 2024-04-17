@@ -32,9 +32,9 @@ export default function User() {
 
     return (
         <div className="h-screen flex justify-center items-center -m-5">
-        <div className="p-10 max-w-screen-md mx-auto border-2 rounded-lg">
         {isLoading && <CircularProgress/>}
         {userData && 
+        <div className="p-10 max-w-screen-md mx-auto border-2 rounded-lg">
             <>
             <div className="flex h-44 justify-center items-center gap-7 my-6">
                 <img className="rounded-full h-full w-auto shadow-lg" src={userData.image} alt={`${userData.firstName} profile photo`} />
@@ -61,8 +61,8 @@ export default function User() {
                 </div>
             </div>
             </>
-        }
         </div>
+        }
         </div>
     )
 }

@@ -13,7 +13,7 @@ function App() {
       groupId: 0,
       groupName: 'April 1st sales team',
       groupUserIds: [
-        0, 4, 5, 10, 20
+        1, 2
       ]
     },
     {
@@ -26,6 +26,7 @@ function App() {
   ]);
 
   const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function getData() {
@@ -37,7 +38,7 @@ function App() {
     }, []);
 
   return (
-    <UserContext.Provider value={{users, setUsers}}>
+    <UserContext.Provider value={{users, setUsers, isLoading}}>
     <GroupContext.Provider value={{groups, setGroups}}>
       <div className="p-5 font-oswald">
         <Outlet />

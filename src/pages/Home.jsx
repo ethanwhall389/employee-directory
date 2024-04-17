@@ -10,8 +10,8 @@ import { UserContext } from "../App";
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [filterQuery, setFilterQuery] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
   const {users} = useContext(UserContext);
+  const {isLoading} = useContext(UserContext);
   
 
   const filteredUsers = users.filter((user) => {

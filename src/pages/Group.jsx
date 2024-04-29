@@ -22,16 +22,18 @@ export default function Group() {
     const [modalContent, setModalContent] = useState('');
 
     function emailCb() {
-        setModalContent('email');
+        setModalContent('Email');
         setModalVisible(true);
     }
 
     function autoDeleteCb() {
-        alert('Schedule auto delete');
+        setModalContent('Auto Delete Group');
+        setModalVisible(true);
     }
 
     function deleteCb() {
-        alert('Delete');
+        setModalContent('Delete Group');
+        setModalVisible(true);
     }
 
 
@@ -51,7 +53,7 @@ export default function Group() {
 
     return (
         <>
-        {modalVisible && <Modal/>}
+        {modalVisible && <Modal setModalVisible={setModalVisible} modalContent={modalContent}/>}
         <h1 className='text-2xl'>{group.groupName}</h1>
         <div className='flex gap-8 justify-center mx-auto md:justify-end'>
             <MenuOption optionLogo={<EmailIcon fontSize='large'/>} optionText={'Mass Email'} cb={emailCb}/>

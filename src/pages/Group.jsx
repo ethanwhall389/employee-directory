@@ -7,7 +7,6 @@ import MenuOption from '../components/MenuOption';
 import Modal from '../components/Modal';
 
 import EmailIcon from '@mui/icons-material/Email';
-import AutoDeleteIcon from '@mui/icons-material/AutoDelete';
 import DeleteIcon from '@mui/icons-material/Delete';
 import fetchData from '../utils/fetchData';
 import { Schedule } from '@mui/icons-material';

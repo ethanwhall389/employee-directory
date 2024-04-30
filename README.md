@@ -3,6 +3,7 @@ A front-end web app utilizing the DummyJSON API that allows users to look up peo
 
 ## Tech Stack
 * React
+* React Router DOM
 * Tailwindcss
 * Material UI
 * Vite

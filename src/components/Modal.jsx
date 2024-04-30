@@ -1,7 +1,8 @@
 import ModalEmail from "./ModalEmail";
+import ModalDelete from "./ModalDelete";
 import CloseBttn from './CloseBttn';
 
-export default function Modal({setModalVisible, modalContent}) {
+export default function Modal({setModalVisible, modalContent, group}) {
 
     function onClose() {
         setModalVisible(false);
@@ -20,9 +21,7 @@ export default function Modal({setModalVisible, modalContent}) {
                     modalContent === 'Email' ?
                     <ModalEmail setModalVisible={setModalVisible}/> :
                     modalContent === 'Delete Group' ?
-                    <div>delete</div> :
-                    modalContent === 'Auto Delete Group' ?
-                    <div>autoDelete</div> :
+                    <ModalDelete group={group}/> :
                     ''
                 }   
                 

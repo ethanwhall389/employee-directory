@@ -10,6 +10,7 @@ export default function AllGroups() {
             {
                 groups.length > 0 ? (
                     <div className="grid grid-cols-responsiveLg gap-3">
+                        <h1 className="text-2xl mb-4">Your Groups</h1>
                         {groups.map((groupData) => (
                             <GroupCard groupData={groupData} key={groupData.groupId}/>
                         ))}

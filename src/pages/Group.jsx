@@ -53,11 +53,10 @@ export default function Group() {
 
     return (
         <>
-        {modalVisible && <Modal setModalVisible={setModalVisible} modalContent={modalContent}/>}
+        {modalVisible && <Modal setModalVisible={setModalVisible} modalContent={modalContent} group={group}/>}
         <h1 className='text-2xl'>{group.groupName}</h1>
         <div className='flex gap-8 justify-center mx-auto md:justify-end'>
             <MenuOption optionLogo={<EmailIcon fontSize='large'/>} optionText={'Mass Email'} cb={emailCb}/>
-            <MenuOption optionLogo={<AutoDeleteIcon fontSize='large'/>} optionText={'Schedule Auto Delete'} cb={autoDeleteCb}/>
             <MenuOption optionLogo={<DeleteIcon fontSize='large'/>} optionText={'Delete Group'} cb={deleteCb}/>
         </div>
         <div className='my-10 grid grid-cols-responsiveLg gap-3 max-w-screen-lg mx-auto'>

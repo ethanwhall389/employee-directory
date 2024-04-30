@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import fetchData from "../utils/fetchData";
 import CircularProgress from "@mui/material/CircularProgress";
+import AddToGroup from "../components/AddToGroup";
 
 export default function User() {
     const [isLoading, setIsLoading] = useState(false);
@@ -41,6 +42,7 @@ export default function User() {
                 <div>
                     <h1 className="text-2xl">{userData.firstName} {userData.lastName}</h1>
                     <h2 className="text-xl">{userData.company.title} | {userData.company.department}</h2>
+                    <AddToGroup userData={userData}/>
                 </div>
             </div>
             <div className="pl-4 max-w-screen-lg mx-auto flex flex-col">

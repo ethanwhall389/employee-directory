@@ -26,11 +26,6 @@ export default function Group() {
         setModalVisible(true);
     }
 
-    function autoDeleteCb() {
-        setModalContent('Auto Delete Group');
-        setModalVisible(true);
-    }
-
     function deleteCb() {
         setModalContent('Delete Group');
         setModalVisible(true);

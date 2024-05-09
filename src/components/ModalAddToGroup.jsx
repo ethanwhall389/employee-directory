@@ -1,47 +1,52 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { GroupContext } from "../App"
 import SelectGroup from "./SelectGroup";
 
-export default function ModalAddToGroup({groups, userData}) {
-    const [userGroups, setUserGroups] = useState([]);
+export default function ModalAddToGroup({userData}) {
 
-    function addGroupId(id) {
-        setUserGroups((prev) => ([
-            ...prev,
-            id
-        ]))
-    }
+    const {groups} = useContext(GroupContext);
+    const {setGroups} = useContext(GroupContext);
 
-    function removeGroupId(id) {
-        const newUserGroups = [];
-        userGroups.forEach((group) => {
-            if (group.groupId !== id) {
-                newUserGroups.push(group.groupId);
+    //find the index of the group we want to change
+    // create a copy of the entire groups array
+    // go to the specific index, and push the new userid
+    
+    function addToGroup(userId, groupId) {
+        groups.forEach((group) => {
+            if (group.groupId === groupId) {
+                
+                if (group.groupUserIds.includes(userId)) {
+                    alert(`This employee is already in ${group.groupName}`);
+                } else {
+                    const index = groups.indexOf(group);
+                    const updatedGroups = groups;
+                    updatedGroups[index].groupUserIds.push(userId);
+            
+                    setGroups(updatedGroups);
+                }
+
             }
         })
+    }
+    
+    // function addToGroup(userId) {
+    //     groups.forEach((group) => {
+    //         console.log(`group user ids: ${group.groupUserIds}`)
+    //         console.log(`userId: ${userId}`);
+    //         if (!group.groupUserIds.includes(userId)) {
+    //             setGroups((prev) => ([
+    //                 ...prev,
+    //                 userId
+    //             ]))
+    //         } else {
+    //             alert(`This employee is already in ${group.groupName}`);
+    //             return;
+    //         }
+    //     })
+    // }
+    
         // const newUserGroups = userGroups.filter((group) => group.groupId !== id);
-        console.log(`new user groups:`);
-        console.log(newUserGroups);
-        setUserGroups(newUserGroups);
-    }
 
-    function onSelectGroup(isChecked, groupId) {
-        console.log('clicked');
-        console.log(isChecked);
-        if (!isChecked) {
-            addGroupId(groupId);
-        } else if (isChecked) {
-            removeGroupId(groupId);
-        }
-    }
-
-    useEffect(() => {
-        const groupIds = []
-        groups.forEach((group) => {
-            group.groupUserIds.includes(userData.id) ?
-            groupIds.push(group.groupId) : null
-        })
-        setUserGroups(groupIds);
-    }, [])
 
     return (
         <>
@@ -50,7 +55,7 @@ export default function ModalAddToGroup({groups, userData}) {
                 <h1 className="text-lg">{userData.firstName}'s groups</h1>
                 <div>
                     {groups.map( (groupData) => (
-                        <SelectGroup key={groupData.groupId} groupData={groupData} userGroups={userGroups} onSelectGroup={onSelectGroup}/>
+                        <SelectGroup key={groupData.groupId} groupData={groupData} userData={userData} addToGroup={addToGroup}/>
                     ))}
                 </div>
             <button className='bg-blue-300 p-2 px-4 mt-6 rounded-full w-full'>Yes, delete</button>

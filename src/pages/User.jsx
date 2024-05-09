@@ -41,7 +41,7 @@ export default function User() {
         <>
         <Modal isVisible={modalVisible} onRequestClose={() => setModalVisible(false)}>
             {groups ? 
-                <ModalAddToGroup groups={groups} userData={userData}/> :
+                <ModalAddToGroup userData={userData}/> :
                 <ModalNewGroup/>
             }
         </Modal>

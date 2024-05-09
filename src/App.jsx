@@ -8,31 +8,16 @@ export const UserContext = createContext(null);
 
 function App() {
 
-  const [groups, setGroups] = useState([
-    {
-      groupId: 0,
-      groupName: 'April 1st sales team',
-      groupUserIds: [
-        1, 2
-      ]
-    },
-    {
-      groupId: 1,
-      groupName: 'Party Planning Committee',
-      groupUserIds: [
-        3, 4, 15, 18, 21
-      ]
-    }
-  ]);
+  const [groups, setGroups] = useState([]);
 
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function getData() {
-      // const data = await fetchData("https://dummyjson.com/users", setIsLoading);
-      // setUsers(data.users);
-      setUsers(dummyData);
+      const data = await fetchData("https://dummyjson.com/users", setIsLoading);
+      setUsers(data.users);
+      // setUsers(dummyData);
     }
     getData();
     }, []);

@@ -1,4 +1,5 @@
-import { useEffect, useState, useContext } from "react"
+import AddToGroup from "../components/AddToGroup";
+
 
 export default function SelectGroup({groupData, userData, addToGroup}) {
 
@@ -7,10 +8,10 @@ export default function SelectGroup({groupData, userData, addToGroup}) {
     }
 
     return (
-        <div>
-            <div className="flex gap-2">
-                <h2>{groupData.groupName}</h2>
-                <button onClick={handleClick}>Add to group</button>
+        <div className="border-2 border-black p-2 rounded-lg">
+            <div className="flex gap-2 justify-between">
+                <h2 className="text-lg">{groupData.groupName}</h2>
+                <AddToGroup size={'medium'} onOpen={handleClick}/>
             </div>
         </div>
     )

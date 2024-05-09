@@ -1,17 +1,19 @@
 import { GroupContext } from "../App"
 import { useContext } from "react"
 import GroupCard from "../components/GroupCard";
+import BackArrow from "../components/BackArrow";
 
 export default function AllGroups() {
     const {groups} = useContext(GroupContext);
     
     return (
         <div className="w-full max-w-screen-xl mx-auto">
+            <BackArrow/>
             {
                 groups.length > 0 ? (
                     <>
-                    <h1 className="text-2xl mb-4">Your Groups</h1>
-                    <div className="grid grid-cols-responsiveLg gap-3">
+                    <h1 className="text-3xl mb-4">Your Groups</h1>
+                    <div className="grid grid-cols-responsiveMd gap-3">
                         {groups.map((groupData) => (
                             <GroupCard groupData={groupData} key={groupData.groupId}/>
                         ))}

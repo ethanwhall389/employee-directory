@@ -5,8 +5,8 @@ import fetchData from "../utils/fetchData";
 import CircularProgress from "@mui/material/CircularProgress";
 import AddToGroup from "../components/AddToGroup";
 import Modal from "../components/Modal";
-import ModalNewGroup from "../components/ModalNewGroup";
 import ModalAddToGroup from "../components/ModalAddToGroup";
+import BackArrow from "../components/BackArrow";
 
 export default function User() {
     const [isLoading, setIsLoading] = useState(false);
@@ -40,13 +40,11 @@ export default function User() {
     return (
         <>
         <Modal isVisible={modalVisible} onRequestClose={() => setModalVisible(false)}>
-            {groups ? 
-                <ModalAddToGroup userData={userData}/> :
-                <ModalNewGroup/>
-            }
+                <ModalAddToGroup userData={userData}/>
         </Modal>
 
-        <div className="h-screen flex justify-center items-center -m-5">
+        <BackArrow/>
+        <div className="p-2 h-screen flex justify-center items-center -m-5">
         {isLoading && <CircularProgress/>}
         {userData && 
         <div className="p-10 max-w-screen-md mx-auto border-2 rounded-lg">
@@ -55,7 +53,7 @@ export default function User() {
                 <img className="rounded-full h-full w-auto shadow-lg" src={userData.image} alt={`${userData.firstName} profile photo`} />
                 <div>
                     <h1 className="text-2xl">{userData.firstName} {userData.lastName}</h1>
-                    <h2 className="text-xl">{userData.company.title} | {userData.company.department}</h2>
+                    <h2 className="text-xl mb-4">{userData.company.title} | {userData.company.department}</h2>
                     <AddToGroup userData={userData} onOpen={() => setModalVisible(true)}/>
                 </div>
             </div>

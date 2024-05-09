@@ -1,13 +1,10 @@
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 
-export default function AddToGroup({userData}) {
+export default function AddToGroup({userData, onOpen}) {
 
-    function handleClick() {
-        console.log(userData);
-    }
 
     return (
-        <div className="mt-4 hover:cursor-pointer" onClick={handleClick}>
+        <div className="mt-4 hover:cursor-pointer" onClick={() => onOpen()}>
             <GroupAddIcon fontSize="large" />
         </div>
     )

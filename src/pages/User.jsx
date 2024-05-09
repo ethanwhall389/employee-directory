@@ -1,15 +1,21 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { GroupContext } from "../App";
 import fetchData from "../utils/fetchData";
 import CircularProgress from "@mui/material/CircularProgress";
 import AddToGroup from "../components/AddToGroup";
+import Modal from "../components/Modal";
+import ModalNewGroup from "../components/ModalNewGroup";
+import ModalAddToGroup from "../components/ModalAddToGroup";
 
 export default function User() {
     const [isLoading, setIsLoading] = useState(false);
     const [userData, setUserData] = useState(null);
     const [formattedBirthdate, setBirthdate] = useState('');
     const [age, setAge] = useState(null);
+    const [modalVisible, setModalVisible] = useState(false);
     const params = useParams();
+    const {groups} = useContext(GroupContext);
     let data = null;
 
 
@@ -32,6 +38,14 @@ export default function User() {
     }, [])
 
     return (
+        <>
+        <Modal isVisible={modalVisible} onRequestClose={() => setModalVisible(false)}>
+            {groups ? 
+                <ModalAddToGroup groups={groups} userData={userData}/> :
+                <ModalNewGroup/>
+            }
+        </Modal>
+
         <div className="h-screen flex justify-center items-center -m-5">
         {isLoading && <CircularProgress/>}
         {userData && 
@@ -42,7 +56,7 @@ export default function User() {
                 <div>
                     <h1 className="text-2xl">{userData.firstName} {userData.lastName}</h1>
                     <h2 className="text-xl">{userData.company.title} | {userData.company.department}</h2>
-                    <AddToGroup userData={userData}/>
+                    <AddToGroup userData={userData} onOpen={() => setModalVisible(true)}/>
                 </div>
             </div>
             <div className="pl-4 max-w-screen-lg mx-auto flex flex-col">
@@ -66,5 +80,6 @@ export default function User() {
         </div>
         }
         </div>
+        </>
     )
 }

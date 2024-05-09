@@ -9,12 +9,14 @@ export default function AllGroups() {
         <div className="w-full max-w-screen-xl mx-auto">
             {
                 groups.length > 0 ? (
+                    <>
+                    <h1 className="text-2xl mb-4">Your Groups</h1>
                     <div className="grid grid-cols-responsiveLg gap-3">
-                        <h1 className="text-2xl mb-4">Your Groups</h1>
                         {groups.map((groupData) => (
                             <GroupCard groupData={groupData} key={groupData.groupId}/>
                         ))}
                     </div>
+                    </>
                 ) : (
                     <div className="flex flex-col h-screen justify-center items-center">
                         <h1 className="text-2xl">You currently have no groups.</h1>

@@ -1,5 +1,6 @@
 # employee-directory
 A front-end web app utilizing the DummyJSON API that allows users to look up people in their company, add them to groups, and take actions accordingly.
+Check it out live here: https://employee-lookup.netlify.app/
 
 ## Tech Stack
 * React

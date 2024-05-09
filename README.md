@@ -1,5 +1,5 @@
 # employee-directory
-A front-end web app utilizing the DummyJSON API that allows users to look up people in their company, add them to groups, and take actions accordingle.
+A front-end web app utilizing the DummyJSON API that allows users to look up people in their company, add them to groups, and take actions accordingly.
 
 ## Tech Stack
 * React

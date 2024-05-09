@@ -1,10 +1,10 @@
 import CloseIcon from '@mui/icons-material/Close';
 
 
-export default function CloseBttn({setModalVisible}) {
+export default function CloseBttn({onRequestClose}) {
     
     function onClose() {
-        setModalVisible(false);
+        onRequestClose();
     }
     
     return (

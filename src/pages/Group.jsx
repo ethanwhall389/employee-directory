@@ -5,6 +5,9 @@ import { UserContext } from '../App';
 import EmployeeCard from '../components/EmployeeCard';
 import MenuOption from '../components/MenuOption';
 import Modal from '../components/Modal';
+import ModalEmail from '../components/ModalEmail';
+import ModalDelete from '../components/ModalDelete';
+
 
 import EmailIcon from '@mui/icons-material/Email';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -47,7 +50,14 @@ export default function Group() {
 
     return (
         <>
-        {modalVisible && <Modal setModalVisible={setModalVisible} modalContent={modalContent} group={group}/>}
+        <Modal isVisible={modalVisible} onRequestClose={() => setModalVisible(false)}>
+            {modalContent === 'Email' ? 
+                <ModalEmail onRequestClose={() => setModalVisible(false)}/> :
+            modalContent === "Delete Group" ? 
+                <ModalDelete group={group}/> :
+            null
+            }
+        </Modal>
         <h1 className='text-2xl'>{group.groupName}</h1>
         <div className='flex gap-8 justify-center mx-auto md:justify-end'>
             <MenuOption optionLogo={<EmailIcon fontSize='large'/>} optionText={'Mass Email'} cb={emailCb}/>

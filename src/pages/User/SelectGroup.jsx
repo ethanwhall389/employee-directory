@@ -1,4 +1,4 @@
-import AddToGroup from "../components/AddToGroup";
+import AddToGroup from "./AddToGroup";
 
 
 export default function SelectGroup({groupData, userData, addToGroup}) {

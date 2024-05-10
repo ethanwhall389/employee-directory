@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { GroupContext } from "../App";
+import { GroupContext } from "../../App";
 import GroupsIcon from '@mui/icons-material/Groups';
 
 export default function GroupIcon() {

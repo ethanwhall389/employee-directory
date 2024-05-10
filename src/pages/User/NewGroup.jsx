@@ -1,6 +1,6 @@
 import { useContext, useState } from "react"
-import { GroupContext } from "../App"
-import Group from "../utils/Group";
+import { GroupContext } from "../../App"
+import Group from "../../utils/Group";
 
 export default function NewGroup() {
 

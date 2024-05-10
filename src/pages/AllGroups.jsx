@@ -1,7 +1,7 @@
-import { GroupContext } from "../../App"
+import { GroupContext } from "../App"
 import { useContext } from "react"
-import GroupCard from "./GroupCard";
-import BackArrow from "../../components/Misc/BackArrow";
+import GroupCard from "../components/GroupCard";
+import BackArrow from "../components/BackArrow";
 
 export default function AllGroups() {
     const {groups} = useContext(GroupContext);

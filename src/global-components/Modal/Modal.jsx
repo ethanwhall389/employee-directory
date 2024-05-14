@@ -1,4 +1,4 @@
-import CloseBttn from '../CloseBttn';
+import CloseBttn from './CloseBttn';
 
 export default function Modal({isVisible, onRequestClose, children}) {
     

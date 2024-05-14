@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-import { GroupContext } from "../App"
+import { GroupContext } from "../../App"
 import SelectGroup from "./SelectGroup";
 import NewGroup from "./NewGroup";
 

@@ -1,9 +1,9 @@
 import { useState, useEffect, createContext, useContext } from "react";
-import EmployeeCard from "../../components/EmployeeCard";
-import Sort from "../../components/Sort";
-import SearchBar from "../../components/SearchBar";
+import EmployeeCard from "../../global-components/UI/EmployeeCard";
+import Sort from "./Sort";
+import SearchBar from "./SearchBar";
 import CircularProgress from "@mui/material/CircularProgress";
-import GroupIcon from "../../components/GroupIcon";
+import GroupIcon from "./GroupIcon";
 import { UserContext } from "../../App";
 
 

@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
-import { GroupContext } from "../App";
-import fetchData from "../utils/fetchData";
+import { GroupContext } from "../../App";
+import fetchData from "../../utils/fetchData";
 import CircularProgress from "@mui/material/CircularProgress";
-import AddToGroup from "../components/AddToGroup";
-import Modal from "../components/Modal";
-import ModalAddToGroup from "../components/ModalAddToGroup";
-import BackArrow from "../components/BackArrow";
+import AddToGroup from "../../components/AddToGroup";
+import Modal from "../../components/Modal/Modal";
+import ModalAddToGroup from "../../components/ModalAddToGroup";
+import BackArrow from "../../components/BackArrow";
 
 export default function User() {
     const [isLoading, setIsLoading] = useState(false);

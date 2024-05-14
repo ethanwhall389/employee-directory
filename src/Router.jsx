@@ -1,10 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
-import Home from "./pages/Home";
-import User from "./pages/User";
-import AllGroups from "./pages/AllGroups";
-import Group from "./pages/Group";
-import NotFound from "./pages/NotFound";
+import Home from "./pages/Home/Home";
+import User from "./pages/User/User";
+import AllGroups from "./pages/AllGroups/AllGroups";
+import Group from "./pages/Group/Group";
+import NotFound from "./pages/404/404";
 
 export default function Router() {
 

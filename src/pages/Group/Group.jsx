@@ -1,13 +1,13 @@
 import { useParams } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
-import { GroupContext } from '../App';
-import { UserContext } from '../App';
-import EmployeeCard from '../components/EmployeeCard';
-import MenuOption from '../components/MenuOption';
-import Modal from '../components/Modal';
-import ModalEmail from '../components/ModalEmail';
-import ModalDelete from '../components/ModalDelete';
-import BackArrow from '../components/BackArrow';
+import { GroupContext } from '../../App';
+import { UserContext } from '../../App';
+import EmployeeCard from '../../components/EmployeeCard';
+import MenuOption from '../../components/MenuOption';
+import Modal from '../../components/Modal/Modal';
+import ModalEmail from '../../components/ModalEmail';
+import ModalDelete from '../../components/ModalDelete';
+import BackArrow from '../../components/BackArrow';
 
 
 import EmailIcon from '@mui/icons-material/Email';
